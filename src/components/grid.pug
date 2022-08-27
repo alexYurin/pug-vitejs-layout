@@ -1,0 +1,74 @@
+mixin grid(params={})
+  -
+    const mixinParamsArgs = [
+      'cols', 'tCols', 'dCols', 'alignX', 'tAlignX', 'dAlignX', 'alignY', 'tAlignY', 'dAlignY'
+    ]
+
+    const mergedParams = {
+      cols: 12,
+      ...params,
+    }
+
+    const getPreffix = (param) => {
+      switch (param) {
+        case 'tCols':
+          return 'tablet'
+
+        case 'dCols':
+          return 'desktop'
+
+        case 'alignX':
+          return 'x'
+
+        case 'tAlignX':
+          return 'x-tablet'
+
+        case 'dAlignX':
+          return 'x-desktop'
+
+        case 'alignY':
+          return 'y'
+
+        case 'tAlignY':
+          return 'y-tablet'
+
+        case 'dAlignY':
+          return 'y-desktop'
+
+        default:
+          return ''
+      }
+    }
+
+    const createGridClassname = (preffix, value) => {
+      if (preffix) {
+        return value ? `grid_${preffix}_${value}` : ''
+      }
+
+      return `grid_${value}`
+    }
+
+    const gridClassname = mixinParamsArgs.reduce((classname, param) => {
+      const paramValue = mergedParams[param]
+
+      if (paramValue) {
+        classname = `${classname} ${createGridClassname(getPreffix(param), paramValue)}`
+
+        return classname
+      } else {
+        return classname
+      }
+    }, '')
+
+  .grid(class=gridClassname)
+    if block
+      block
+
+mixin gridContainer(params={})
+  -
+    const { isFull } = params
+    const widthClassname = isFull ? 'grid-container_full' : ''
+
+  .grid-container(class=widthClassname)
+    if block
+      block

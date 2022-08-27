@@ -1,0 +1,61 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mx;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(#{vars.$grid-columns}, 1fr);
+  column-gap: vars.$grid-gap;
+  row-gap: vars.$grid-gap;
+
+  &_full {
+    width: 100%;
+  }
+}
+
+.grid {
+  @include mx.get-columns;
+
+  &_tablet {
+    @include mx.tablet {
+      @include mx.get-columns;
+    }
+  }
+
+  &_desktop {
+    @include mx.desktop {
+      @include mx.get-columns;
+    }
+  }
+
+  &_x {
+    @include mx.grid-align('x');
+
+    &-tablet {
+      @include mx.tablet {
+        @include mx.grid-align('x');
+      }
+    }
+
+    &-desktop {
+      @include mx.desktop {
+        @include mx.grid-align('x');
+      }
+    }
+  }
+
+  &_y {
+    @include mx.grid-align('y');
+
+    &-tablet {
+      @include mx.tablet {
+        @include mx.grid-align('y');
+      }
+    }
+
+    &-desktop {
+      @include mx.desktop {
+        @include mx.grid-align('y');
+      }
+    }
+  }
+}

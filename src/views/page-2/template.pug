@@ -1,0 +1,11 @@
+
+extends ../../layouts/main
+
+block content
+  .ui-view
+    h1 Page 2
+    +gridContainer()
+      +grid({ cols: 12, tCols: 6 })
+        p Column 1
+      +grid({ cols: 12, tCols: 6 })
+        p Column 2

@@ -1,0 +1,11 @@
+%blur-fx {
+  filter: blur(10px);
+}
+
+%blur-content {
+  & ~ .header,
+  & ~ .content,
+  & ~ .footer {
+    @extend %blur-fx;
+  }
+}

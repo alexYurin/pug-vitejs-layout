@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use 'styles/themes' as *;
+
+@mixin themify($property, $key) {
+  @each $theme, $colors in $themes {
+    &.theme-#{$theme},
+    .theme-#{$theme} & {
+      #{$property}: map.get($colors, $key);
+    }
+  }
+}
+
+@mixin color($arguments...) {
+  @include themify('color', $arguments...);
+}
+
+@mixin border-color($arguments...) {
+  @include themify('border-color', $arguments...);
+}
+
+@mixin background-color($arguments...) {
+  @include themify('background-color', $arguments...);
+}
+
+@mixin opacity($arguments...) {
+  @include themify('opacity', $arguments...);
+}

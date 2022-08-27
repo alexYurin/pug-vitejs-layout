@@ -1,0 +1,15 @@
+@use 'styles/mixins' as mx;
+
+.layout-control {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  @include mx.tablet {
+    margin: 0 auto;
+    padding: 0 32px;
+    max-width: 1440px;
+  }
+  @include mx.desktop {
+    padding: 0 56px;
+  }
+}
