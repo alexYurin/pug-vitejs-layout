@@ -4,8 +4,8 @@ extends ../../layouts/main
 block content
   .ui-view
     h1 Page 1
-    +gridContainer()
-      +grid({ cols: 12, tCols: 6 })
+    +grid
+      +gridItem({ cols: 12, tCols: 6 })
         p Column 1
-      +grid({ cols: 12, tCols: 6 })
+      +gridItem({ cols: 12, tCols: 6 })
         p Column 2

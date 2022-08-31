@@ -1,12 +1,8 @@
-@use 'styles/mixins' as mx;
-@use 'styles/variables' as vars;
-
 .root-container {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-
 
 .content {
   flex: 1 0 auto;
