@@ -21,9 +21,10 @@ const pugLocals = {
   baseUrl: './views',
   imgUrl: '/assets/images',
   $: {
-    getDataPage(page) {
+    requireDataPage(page) {
       const context = 'src/views'
       const dirname = resolve(process.cwd(), `${context}/${page}/data.json`)
+
       return require(dirname)
     },
   },

@@ -3,7 +3,7 @@ extends ../../layouts/main
 
 block content
   -
-    const { header, columnTextLeft, columnTextRight } = $.getDataPage('page-1')
+    const { header, columnTextLeft, columnTextRight } = $.requireDataPage('page-1')
 
   .ui-view
     h1 #{header}
