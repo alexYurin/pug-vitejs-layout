@@ -1,18 +1,18 @@
-import * as ModuleComponents from './components'
+import * as Modules from './modules'
 import './modules'
 
-interface IComponents {
+interface IModules {
   [id: string]: () => void
 }
 
 document.addEventListener('DOMContentLoaded', function (): void {
-  const Components: IComponents = ModuleComponents
+  const ModulesCollection: IModules = Modules
 
-  Object.keys(Components).forEach(ComponentName => {
-    const Component = Components[ComponentName]
+  Object.keys(ModulesCollection).forEach(ModuleName => {
+    const ModuleHandler = ModulesCollection[ModuleName]
 
-    if (typeof Component === 'function') {
-      Component()
+    if (typeof ModuleHandler === 'function') {
+      ModuleHandler()
     }
   })
 })

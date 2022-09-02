@@ -32,7 +32,5 @@ body {
 }
 
 a {
-  @include ut.color('text');
-
   text-decoration: none;
 }

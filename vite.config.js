@@ -20,6 +20,13 @@ const pugOptions = {
 const pugLocals = {
   baseUrl: './views',
   imgUrl: '/assets/images',
+  $: {
+    getDataPage(page) {
+      const context = 'src/views'
+      const dirname = resolve(process.cwd(), `${context}/${page}/data.json`)
+      return require(dirname)
+    },
+  },
 }
 
 export default defineConfig({

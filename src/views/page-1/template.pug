@@ -2,10 +2,13 @@
 extends ../../layouts/main
 
 block content
+  -
+    const { header, columnTextLeft, columnTextRight } = $.getDataPage('page-1')
+
   .ui-view
-    h1 Page 1
+    h1 #{header}
     +grid
       +gridItem({ cols: 12, tCols: 6 })
-        p Column 1
+        p #{columnTextLeft}
       +gridItem({ cols: 12, tCols: 6 })
-        p Column 2
+        p #{columnTextRight}

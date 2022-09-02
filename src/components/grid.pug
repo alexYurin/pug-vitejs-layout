@@ -29,26 +29,30 @@ mixin gridItem(params={})
       return `grid__item_${value}`
     }
 
-    const gridClassname = Object.keys(assocParams).reduce((classname, paramKey) => {
-      const paramValue = mergedParams[paramKey]
+    const gridClassname = Object.keys(assocParams)
+      .reduce((classname, paramKey) => {
+        const paramValue = mergedParams[paramKey]
 
-      classname = paramValue
-        ? `${classname} ${createGridClassname(
-          getPreffix(paramKey),
-          paramValue
-        )}`
-        : classname
+        classname = paramValue
+          ? `${classname} ${createGridClassname(
+            getPreffix(paramKey),
+            paramValue
+          )}`
+          : classname
 
-      return classname
-    }, '')
+        return classname
+      },
+      ''
+    )
 
   .grid__item(class=gridClassname)
+    p #{d}
     if block
       block
 
 mixin grid(params={})
   -
-    const { isFullWidth, props } = params
+    const { isFullWidth, ...props } = params
 
   .grid(class=isFullWidth ? 'grid_full-width' : '')&attributes(props)
     if block
