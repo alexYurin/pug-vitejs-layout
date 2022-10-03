@@ -1,9 +1,8 @@
-
-extends layouts/main
+extends layouts/main/template
 
 block content
   h1 Index Page
   div
-    a(href=`${baseUrl}/page-1/index.html`) Page 1
+    a(href=`${viewsUrl}/page-1/index.html`) Page 1
   div
-    a(href=`${baseUrl}/page-2/index.html`) Page 2
+    a(href=`${viewsUrl}/page-2/index.html`) Page 2

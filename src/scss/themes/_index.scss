@@ -1,7 +1,0 @@
-@use './dark' as dark;
-@use './light' as light;
-
-$themes: (
-  'dark': dark.$theme,
-  'light': light.$theme,
-);

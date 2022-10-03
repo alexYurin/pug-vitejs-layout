@@ -1,0 +1,11 @@
+extends /layouts/main/template
+
+block content
+  -
+    const {header, columnTextLeft, columnTextRight} = $.requireDataPage('page-1')
+
+  h1 #{header}
+  div
+    a(href=`${viewsUrl}/page-1/extend-page-1.html`) Example Extend Page 1
+  div
+    a(href=`${viewsUrl}/page-1/extend-page-2.html`) Example Extend Page 2
