@@ -1,8 +1,8 @@
-@use 'styles/utils' as ut;
-@use 'styles/variables' as vars;
+@use 'styles/mixins' as mx;
+@use 'styles/config' as cfg;
 
 @mixin get-columns {
-  @for $size from 0 through vars.$grid-columns {
+  @for $size from 0 through cfg.$grid-columns {
     @if $size == 0 {
       &_#{$size} {
         display: none;
@@ -29,7 +29,7 @@
 }
 
 @mixin grid-align($direction) {
-  @each $align in vars.$grid-align-list {
+  @each $align in cfg.$grid-align-list {
     @if $direction == 'x' {
       @include grid-align-horizontal($align);
     } @else {
@@ -40,9 +40,9 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(#{vars.$grid-columns}, 1fr);
-  column-gap: vars.$grid-gap;
-  row-gap: vars.$grid-gap;
+  grid-template-columns: repeat(#{cfg.$grid-columns}, 1fr);
+  column-gap: cfg.$grid-gap;
+  row-gap: cfg.$grid-gap;
 
   &_full-width {
     width: 100%;
@@ -53,13 +53,13 @@
   @include get-columns;
 
   &_tablet {
-    @include ut.tablet {
+    @include mx.tablet {
       @include get-columns;
     }
   }
 
   &_desktop {
-    @include ut.desktop {
+    @include mx.desktop {
       @include get-columns;
     }
   }
@@ -68,13 +68,13 @@
     @include grid-align('x');
 
     &-tablet {
-      @include ut.tablet {
+      @include mx.tablet {
         @include grid-align('x');
       }
     }
 
     &-desktop {
-      @include ut.desktop {
+      @include mx.desktop {
         @include grid-align('x');
       }
     }
@@ -84,13 +84,13 @@
     @include grid-align('y');
 
     &-tablet {
-      @include ut.tablet {
+      @include mx.tablet {
         @include grid-align('y');
       }
     }
 
     &-desktop {
-      @include ut.desktop {
+      @include mx.desktop {
         @include grid-align('y');
       }
     }

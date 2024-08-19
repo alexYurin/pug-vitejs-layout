@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
-import { configureInputs } from './vite.utils'
+import { configureInputs, MoveManifestPlugin } from './vite.utils'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
 import pugPlugin from 'vite-plugin-pug'
 
@@ -12,6 +12,10 @@ const copyOptions = {
     {
       src: ['./assets/images/*'],
       dest: './assets/images',
+    },
+    {
+      src: ['./assets/icons/*'],
+      dest: './assets/icons',
     },
   ],
 }
@@ -39,7 +43,11 @@ const pugLocals = {
 
 export default defineConfig({
   root: 'src',
-  plugins: [pugPlugin(pugOptions, pugLocals), viteStaticCopy(copyOptions), /* mpa(mpaOptions) */],
+  plugins: [
+    pugPlugin(pugOptions, pugLocals),
+    viteStaticCopy(copyOptions),
+    /* mpa(mpaOptions) */
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -65,18 +73,22 @@ export default defineConfig({
         NodeGlobalsPolyfillPlugin({
           process: true,
         }),
-        NodeModulesPolyfillPlugin({})
-      ]
-    }
+        NodeModulesPolyfillPlugin({}),
+      ],
+    },
   },
   build: {
+    manifest: true,
     outDir: resolve(__dirname, 'build'),
     rollupOptions: {
       input: {
         app: resolve(__dirname, 'src/index.html'),
         ...configureInputs('src', 'views'),
       },
-      plugins: [nodePolyfills()]
+      plugins: [
+        nodePolyfills(),
+        MoveManifestPlugin('./build/assets/manifest.json'),
+      ],
     },
   },
 })

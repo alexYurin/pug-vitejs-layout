@@ -21,7 +21,7 @@ mixin gridItem(params={})
       return assocParams[param] ?? ''
     }
 
-    const createGridClassname = (prefix, value) => {
+    const createGridClassName = (prefix, value) => {
       if (prefix) {
         return value ? `grid__item_${prefix}_${value}` : ''
       }
@@ -29,24 +29,23 @@ mixin gridItem(params={})
       return `grid__item_${value}`
     }
 
-    const gridClassname = Object.keys(assocParams)
-      .reduce((classname, paramKey) => {
+    const gridClassName = Object.keys(assocParams)
+      .reduce((className, paramKey) => {
         const paramValue = mergedParams[paramKey]
 
-        classname = paramValue
-          ? `${classname} ${createGridClassname(
+        className = paramValue
+          ? `${className} ${createGridClassName(
             getPrefix(paramKey),
             paramValue
           )}`
-          : classname
+          : className
 
-        return classname
+        return className
       },
       ''
     )
 
-  .grid__item(class=gridClassname)
-    p #{d}
+  .grid__item(class=gridClassName)
     if block
       block
 

@@ -1,0 +1,39 @@
+$offset: 1rem;
+
+$grid-columns: 12;
+$grid-gap: 0;
+$grid-align-list: start, center, end;
+
+$tablet: 940;
+$desktop: 1440;
+$wide-screen: 1920;
+
+$transition-duration: 300ms;
+
+$content-max-width: 1280px;
+
+$font-poppins: Poppins;
+$font-family-default: $font-poppins;
+
+$border-radius: 1rem;
+
+$transition-duration: 0.2s;
+
+$theme-names: light, dark;
+
+$font-weights: (
+  '100': 100,
+  '200': 200,
+  '300': 300,
+  '400': 400,
+  '500': 500,
+  '600': 600,
+  '700': 700,
+  '800': 800,
+  '900': 900,
+);
+
+$base-z-index: 1;
+$negative-z-index: -1;
+$overlay-z-index: $base-z-index * 99;
+$content-z-index: $overlay-z-index + 1;

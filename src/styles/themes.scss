@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use 'sass:color';
+@use 'styles/colors' as clr;
+
+$theme-base-dark: (
+  base: clr.$purple-dark-deep,
+  primary: clr.$purple,
+  secondary: clr.$purple-dark,
+  shadow: clr.$purple-dark-shadow,
+  shadow-deep: clr.$purple-dark-deep,
+  body-bg: clr.$purple-black,
+  text: clr.$purple-gray,
+  text-light: clr.$gray-light,
+  text-white: clr.$white,
+  text-muted: clr.$purple-muted,
+  text-gray: clr.$gray,
+  drop: clr.$transparent,
+);
+
+$theme-base-light: (
+  drop: clr.$transparent,
+);
+
+@function mergeThemes($components-themes...) {
+  $theme-light: $theme-base-light;
+  $theme-dark: $theme-base-dark;
+
+  @each $theme in $components-themes {
+    $theme-light: map.merge($theme-light, map.get($theme, 'light'));
+    $theme-dark: map.merge($theme-dark, map.get($theme, 'dark'));
+  }
+
+  $themes: (
+    'dark': $theme-dark,
+    'light': $theme-light,
+  );
+
+  @return $themes;
+}
+
+$themes: mergeThemes() !default;

@@ -1,2 +1,2 @@
 import './base'
-import './main'
+import './app'

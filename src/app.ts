@@ -1,5 +1,5 @@
 // app style settings
-import './app.scss'
+import './styles/root.scss'
 
 // app packages
 import './blocks'
