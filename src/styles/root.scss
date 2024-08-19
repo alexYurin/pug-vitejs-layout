@@ -1,2 +1,21 @@
-// Fonts
-@use './fonts';
+@use 'fonts';
+@use 'styles/mixins' as mx;
+@use 'styles/config' as cfg;
+
+html {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
+}
+
+a {
+  @include mx.themify('color', 'primary');
+
+  text-decoration: none;
+}

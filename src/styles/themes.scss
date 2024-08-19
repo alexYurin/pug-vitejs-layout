@@ -3,17 +3,15 @@
 @use 'styles/colors' as clr;
 
 $theme-base-dark: (
-  base: clr.$purple-dark-deep,
   primary: clr.$purple,
   secondary: clr.$purple-dark,
-  shadow: clr.$purple-dark-shadow,
-  shadow-deep: clr.$purple-dark-deep,
-  body-bg: clr.$purple-black,
-  text: clr.$purple-gray,
-  text-light: clr.$gray-light,
-  text-white: clr.$white,
-  text-muted: clr.$purple-muted,
-  text-gray: clr.$gray,
+  accent-dark-shadow: clr.$purple-dark-shadow,
+  accents-dark-deep: clr.$purple-dark-deep,
+  accent-gray: clr.$gray,
+  accent-gray-light: clr.$gray-light,
+  accent-white: clr.$white,
+  accent-muted: clr.$purple-muted,
+  accent-black: clr.$purple-black,
   drop: clr.$transparent,
 );
 

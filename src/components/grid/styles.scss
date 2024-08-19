@@ -1,6 +1,8 @@
 @use 'styles/mixins' as mx;
 @use 'styles/config' as cfg;
 
+$component: grid;
+
 @mixin get-columns {
   @for $size from 0 through cfg.$grid-columns {
     @if $size == 0 {
@@ -38,60 +40,57 @@
   }
 }
 
-.grid {
+.#{$component} {
   display: grid;
   grid-template-columns: repeat(#{cfg.$grid-columns}, 1fr);
-  column-gap: cfg.$grid-gap;
-  row-gap: cfg.$grid-gap;
+  column-gap: cfg.$grid-column-gap;
+  row-gap: cfg.$grid-row-gap;
+  width: 100%;
 
-  &_full-width {
-    width: 100%;
-  }
-}
+  &__item {
+    @include get-columns;
 
-.grid__item {
-  @include get-columns;
-
-  &_tablet {
-    @include mx.tablet {
-      @include get-columns;
-    }
-  }
-
-  &_desktop {
-    @include mx.desktop {
-      @include get-columns;
-    }
-  }
-
-  &_x {
-    @include grid-align('x');
-
-    &-tablet {
+    &_tablet {
       @include mx.tablet {
-        @include grid-align('x');
+        @include get-columns;
       }
     }
 
-    &-desktop {
+    &_desktop {
       @include mx.desktop {
-        @include grid-align('x');
-      }
-    }
-  }
-
-  &_y {
-    @include grid-align('y');
-
-    &-tablet {
-      @include mx.tablet {
-        @include grid-align('y');
+        @include get-columns;
       }
     }
 
-    &-desktop {
-      @include mx.desktop {
-        @include grid-align('y');
+    &_x {
+      @include grid-align('x');
+
+      &-tablet {
+        @include mx.tablet {
+          @include grid-align('x');
+        }
+      }
+
+      &-desktop {
+        @include mx.desktop {
+          @include grid-align('x');
+        }
+      }
+    }
+
+    &_y {
+      @include grid-align('y');
+
+      &-tablet {
+        @include mx.tablet {
+          @include grid-align('y');
+        }
+      }
+
+      &-desktop {
+        @include mx.desktop {
+          @include grid-align('y');
+        }
       }
     }
   }

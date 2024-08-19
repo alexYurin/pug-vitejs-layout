@@ -1,5 +1,35 @@
-.app-container {
+@use 'styles/mixins' as mx;
+@use 'styles/config' as cfg;
+
+.app {
+  @include mx.themify('background-color', 'accent-black');
+  @include mx.themify('color', 'accent-white');
+
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+  font-family: cfg.$font-family-default;
+
+  &_fixed {
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+  }
+
+  &_transition_disabled {
+    * {
+      transition: none !important;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased !important;
+  }
 }

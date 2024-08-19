@@ -1,7 +1,8 @@
 $offset: 1rem;
 
 $grid-columns: 12;
-$grid-gap: 0;
+$grid-column-gap: 0;
+$grid-row-gap: 0;
 $grid-align-list: start, center, end;
 
 $tablet: 940;
@@ -12,8 +13,8 @@ $transition-duration: 300ms;
 
 $content-max-width: 1280px;
 
-$font-poppins: Poppins;
-$font-family-default: $font-poppins;
+$font-inter: Inter;
+$font-family-default: $font-inter;
 
 $border-radius: 1rem;
 

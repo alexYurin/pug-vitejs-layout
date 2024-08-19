@@ -51,8 +51,8 @@ mixin gridItem(params={})
 
 mixin grid(params={})
   -
-    const { isFullWidth, ...props } = params
+    const { className, ...props } = params
 
-  .grid(class=isFullWidth ? 'grid_full-width' : '')&attributes(props)
+  .grid(class=className)&attributes(props)
     if block
       block

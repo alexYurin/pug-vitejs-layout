@@ -1,0 +1,12 @@
+mixin input(params={})
+  -
+    const { iconName, className, ...props } = params
+
+  .input(data-component="Input" class=className)
+    .input__content
+      if (iconName)
+        img(src=`${icnUrl}/${iconName}`).input__icon
+
+      input.input__field&attributes(props)
+
+      block

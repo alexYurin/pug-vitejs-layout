@@ -1,7 +1,6 @@
-extends /layouts/base/template
+include /components/all
 
-block container
-  section.app-container
-    include /blocks/header/template
-    include /blocks/content/template
-    include /blocks/footer/template
+body.app.app_transition_disabled
+  include /partials/header/template
+  include /partials/content/template
+  include /partials/footer/template

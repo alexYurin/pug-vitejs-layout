@@ -1,0 +1,35 @@
+@use 'styles/mixins' as mx;
+
+.button {
+  all: unset;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3.2rem;
+  border-radius: 1.2rem;
+  height: 5.8rem;
+  cursor: pointer;
+
+  &_primary {
+    @include mx.themify('background-color', 'primary');
+  }
+
+  &__content {
+    @include mx.themify('color', 'accent-white');
+
+    display: inline-flex;
+    border-radius: 1.2rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  &__icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-left: 2rem;
+    width: 24px;
+    height: 24px;
+  }
+}
