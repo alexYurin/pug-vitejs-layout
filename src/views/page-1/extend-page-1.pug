@@ -2,3 +2,16 @@ extends /layouts/app/template
 
 block content
   h1 Extend Page 1
+
+  +input({
+    name: 'input',
+    type: 'text',
+    iconName: 'search-lg',
+    placeholder: 'Typing here ...'
+  })
+    +button({
+      type: 'submit',
+      status: 'primary',
+      iconName: 'arrow-right',
+    })
+      | Submit

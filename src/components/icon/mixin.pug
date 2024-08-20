@@ -1,0 +1,7 @@
+mixin icon(params={})
+  -
+    const { name, className, ext, ...props } = params
+
+    const iconSrc = `${iconsUrl}/${name}.${ext || 'svg'}`
+
+  img(src=iconSrc alt=name).icon(class=className)&attributes(props)

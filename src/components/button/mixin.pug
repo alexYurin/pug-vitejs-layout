@@ -10,8 +10,9 @@ mixin button(params={})
     href=href
     class=`${className || ''} ${statusClassName}`.trim()
   )&attributes(props)
-      span.button__content
-        block
+      if block
+        span.button__content
+          block
 
       if (iconName)
-        img(src=`${icnUrl}/${iconName}`).button__icon
+        +icon({ name: iconName, className: 'button__icon' })

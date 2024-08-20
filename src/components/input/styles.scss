@@ -18,7 +18,7 @@ $component: input;
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
-    padding: 1rem 1rem 1rem 2.4rem;
+    padding: 1rem 0.5rem 1rem 1.4rem;
     height: 5.8rem;
     border-radius: 1.2rem;
   }
@@ -56,10 +56,6 @@ $component: input;
   }
 
   .button {
-    &__icon {
-      margin-left: 0;
-    }
-
     height: 4.8rem;
   }
 }

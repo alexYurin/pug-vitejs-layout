@@ -29,7 +29,8 @@ const pugOptions = {
 const pugLocals = {
   baseUrl: '.',
   viewsUrl: '/views',
-  imgUrl: '/assets/images',
+  imagesUrl: '/assets/images',
+  iconsUrl: '/assets/icons',
 
   $: {
     requireDataPage(page) {
@@ -56,6 +57,7 @@ export default defineConfig({
       views: resolve(__dirname, 'src/views'),
       styles: resolve(__dirname, 'src/styles'),
       images: resolve(__dirname, 'src/assets/images'),
+      icons: resolve(__dirname, 'src/assets/icons'),
       fonts: resolve(__dirname, 'src/assets/fonts'),
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.pug', '.scss'],
@@ -73,7 +75,7 @@ export default defineConfig({
         NodeGlobalsPolyfillPlugin({
           process: true,
         }),
-        NodeModulesPolyfillPlugin({}),
+        NodeModulesPolyfillPlugin(),
       ],
     },
   },

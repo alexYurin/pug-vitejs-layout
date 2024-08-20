@@ -1,0 +1,7 @@
+mixin image(params={})
+  -
+    const { name, src, className, ext, ...props } = params
+
+    const imageSrc = src || `${imagesUrl}/${name}.${ext || 'png'}`
+
+  img(src=imageSrc alt=name).image(class=className)&attributes(props)

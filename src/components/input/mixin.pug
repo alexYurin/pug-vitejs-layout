@@ -1,12 +1,28 @@
 mixin input(params={})
   -
-    const { iconName, className, ...props } = params
+    const { iconName, className, type, value, status, ...props } = params
 
-  .input(data-component="Input" class=className)
+    const statusClassName = status ? `input_${status}` : ''
+    const textareaClassName = type === 'textarea' ? 'input_textarea' : ''
+
+  .input(
+    data-component="Input"
+    class=`
+      ${className || ''}
+      ${[
+        statusClassName,
+        textareaClassName,
+      ].join(' ')}
+    `.trim()
+  )
     .input__content
       if (iconName)
-        img(src=`${icnUrl}/${iconName}`).input__icon
+        +icon({ name: iconName, className: 'input__icon' })
 
-      input.input__field&attributes(props)
+      if (type === 'textarea')
+        textarea.input__field&attributes(props) #{value}
+      else
+        input(type=type, value=value).input__field&attributes(props)
 
-      block
+      if block
+        block
