@@ -17,7 +17,7 @@ mixin input(params={})
   )
     .input__content
       if (iconName)
-        +icon({ name: iconName, className: 'input__icon' })
+        +svg({ name: iconName, className: 'input__icon' })
 
       if (type === 'textarea')
         textarea.input__field&attributes(props) #{value}

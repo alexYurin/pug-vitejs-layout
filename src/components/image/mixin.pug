@@ -4,4 +4,4 @@ mixin image(params={})
 
     const imageSrc = src || `${imagesUrl}/${name}.${ext || 'png'}`
 
-  img(src=imageSrc alt=name).image(class=className)&attributes(props)
+  img(src=imageSrc alt=name class=className).image&attributes(props)

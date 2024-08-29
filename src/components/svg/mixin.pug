@@ -1,0 +1,8 @@
+mixin svg(params={})
+  -
+    const { name, className, ...props } = params
+
+    const iconSrc = `${iconsUrl}/sprite.svg#${name}`
+
+  svg(aria-hidden="true" class=className).svg&attributes(props)
+    use(xlink:href=iconSrc)

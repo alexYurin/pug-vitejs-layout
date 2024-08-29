@@ -4,6 +4,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
 import { configureInputs, MoveManifestPlugin } from './vite.utils'
+import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
 import pugPlugin from 'vite-plugin-pug'
 
@@ -46,6 +47,10 @@ export default defineConfig({
   root: 'src',
   plugins: [
     pugPlugin(pugOptions, pugLocals),
+    ViteSvgSpriteWrapper({
+      icons: './src/assets/icons/*.svg',
+      outputDir: resolve(__dirname, 'src/assets/icons'),
+    }),
     viteStaticCopy(copyOptions),
     /* mpa(mpaOptions) */
   ],

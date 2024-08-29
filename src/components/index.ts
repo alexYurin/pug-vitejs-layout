@@ -1,6 +1,6 @@
 import './grid'
 import './image'
-import './icon'
+import './svg'
 import './input'
 import './title'
 import './text'

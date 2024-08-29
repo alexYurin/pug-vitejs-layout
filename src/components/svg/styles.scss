@@ -1,6 +1,6 @@
 @use 'styles/mixins' as mx;
 
-$component: icon;
+$component: svg;
 
 .#{$component} {
   display: inline-flex;
