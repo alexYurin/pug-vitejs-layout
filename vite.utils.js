@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs'
+import { readdirSync, renameSync } from 'fs'
 import { extname, resolve } from 'path'
 
 export const scanPath = path => readdirSync(path)
@@ -62,6 +62,7 @@ export function MoveManifestPlugin(desiredManifestPath) {
       outDir = resolvedConfig.build.outDir
 
       const resolvedManifest = resolvedConfig.build.manifest
+
       if (resolvedManifest) {
         manifest =
           typeof resolvedManifest === 'string'
@@ -75,7 +76,7 @@ export function MoveManifestPlugin(desiredManifestPath) {
       if (manifest === false) return
 
       await renameSync(
-        resolve(__dirname, outDir, manifest),
+        resolve(__dirname, outDir, 'manifest.json'),
         desiredManifestPath,
       )
     },
